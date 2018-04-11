@@ -21,7 +21,7 @@ function get_letter_interval_2(number_a, number_b) {
       }
     }
   }
-  for (var j = 0; j < result.length;j ++) {
+/*  for (var j = 0; j < result.length;j ++) {
     if (result[j] > 0) {
       if (result[j] >= 1 && result[j] <= 26) {
         result_a.push(String.fromCharCode(96 + parseInt(result[j])));
@@ -39,8 +39,8 @@ function get_letter_interval_2(number_a, number_b) {
         }
       }
     }
-  }
-  return result_a;
+  }*/
+  return result;
 }
 
 module.exports = get_letter_interval_2;
