@@ -6,10 +6,10 @@ function numToChar(num) {
   if (quotient === 0) {
     //当商为0时，即 0 <= num < 26
     return String.fromCharCode(remainder + 96)
-  }/* else if (quotient === 1 && remainder === 0) {
+  } else if (quotient === 1 && remainder === 0) {
     //当商1，模0时，即num = 26
     return 'z';
-  }*/ else if (quotient >= 1 && remainder === 0) {
+  } else if (quotient > 1 && remainder === 0) {
     //商大于1，模为0 时，即num是26的倍数的数
     return numToChar(quotient - 1) + 'z';
   } else {
