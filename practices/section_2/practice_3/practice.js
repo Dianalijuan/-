@@ -1,6 +1,6 @@
 'use strict';
 function count_same_elements(collection) {
-  var res = [];
+  var result = [];
 
   for(var i=0; i < collection.length; i++) {
     var temp_count_i = 1;
@@ -42,11 +42,11 @@ function count_same_elements(collection) {
       }
     }
 
-    res.push({"name":temp_value_i,"summary":temp_count_i});
+    result.push({"name":temp_value_i,"summary":temp_count_i});
 
 
   }
-  return res;
+  return result;
 }
 
 module.exports = count_same_elements;
