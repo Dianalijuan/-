@@ -16,7 +16,7 @@ describe('even_group_calculate_average', function() {
     expect(result).toEqual([0]);
   });
 
-  it('首先选出所有第偶数个元素，然后选出其中的偶数，按几位数分组，当不含有1位，2位的数字，但含有3位的情况时，计算这组的平均数', function() {
+  iit('首先选出所有第偶数个元素，然后选出其中的偶数，按几位数分组，当不含有1位，2位的数字，但含有3位的情况时，计算这组的平均数', function() {
     var result = even_group_calculate_average(collection_c);
     expect(result).toEqual([218]);
   });
