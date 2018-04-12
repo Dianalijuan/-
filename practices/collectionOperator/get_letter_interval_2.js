@@ -1,47 +1,45 @@
 'use strict';
+function numToChar(num) {
+  let remainder = num % 26;
+  let quotient = parseInt(num / 26);
 
-function get_letter_interval_2(number_a, number_b) {
-  var result = [];
-  var result_a = [];
-  if (number_a === number_b) {
-    result.push(number_a);
+  if (quotient === 0) {
+    //当商为0时，即 0 <= num < 26
+    return String.fromCharCode(remainder + 96)
+  }/* else if (quotient === 1 && remainder === 0) {
+    //当商1，模0时，即num = 26
+    return 'z';
+  }*/ else if (quotient >= 1 && remainder === 0) {
+    //商大于1，模为0 时，即num是26的倍数的数
+    return numToChar(quotient - 1) + 'z';
   } else {
-    var min = number_a < number_b ? number_a : number_b;
-    var max = number_a > number_b ? number_a : number_b;
-    if (min === number_a) {
-      result.push(min);
-      for (var i = result[0] + 1; i <= max; i++) {
-        result.push(i);
-      }
+    //商大于1，模不为0时
+    return numToChar(quotient) + String.fromCharCode(remainder + 96);
+  }
+}
+
+function createArr(num_1, num_2) {
+  let arr = [];
+  if (num_1 < num_2) {
+    for (let i = num_1; i <= num_2; i++) {
+      arr.push(numToChar(i))
     }
-    else if (max === number_a) {
-      result.push(max);
-      for (var i = result[0] - 1; i >= min; i--) {
-        result.push(i);
-      }
+  } else if (num_1 > num_2) {
+    for (let i = num_1; i >= num_2; i--) {
+      arr.push(numToChar(i))
     }
   }
-/*  for (var j = 0; j < result.length;j ++) {
-    if (result[j] > 0) {
-      if (result[j] >= 1 && result[j] <= 26) {
-        result_a.push(String.fromCharCode(96 + parseInt(result[j])));
-      } else {
-        while (result[j] > 26) {
-          var count = parseInt(result[j] / 26);
-          var remainder = result[j] % 26;
-          if (remainder === 0) {
-            remainder = 26;
-            count--;
-            result_a.push(String.fromCharCode(96 + parseInt(remainder)));
-          } else {
-            result_a.push(String.fromCharCode(96 + parseInt(remainder)));
-          }
-        }
-      }
-    }
-  }*/
-  return result;
+  return arr;
 }
+
+function get_letter_interval_2(number_a, number_b) {
+  if (number_a === number_b) {
+    return [numToChar(number_a)]
+  } else {
+    return createArr(number_a, number_b)
+  }
+}
+
 
 module.exports = get_letter_interval_2;
 
